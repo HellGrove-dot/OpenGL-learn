@@ -41,6 +41,14 @@ void glfwKeyBack(GLFWwindow* pWin, int key, int scancode, int action, int mode)
 	{
 		glfwSetWindowShouldClose(pWin, GL_TRUE);
 	}
+	static float x = 0.0f; 
+	if (key == GLFW_KEY_UP && action == GLFW_REPEAT) 
+	{
+		x += 0.1f;
+		if (x > 1.0f) x = 0.0f;
+		glClearColor(x, 0.4f, 0.8f, 1.0f);
+	}
+
 }
 
 void glfwScreenSizeBack(GLFWwindow* pWin, int width, int height)
@@ -85,7 +93,7 @@ int main(void)
 	std::cout<<"Renderer: " << glGetString(GL_RENDERER) << std::endl;
 	std::cout<<"OpenGL: " << glGetString(GL_VERSION) << std::endl;
 
-	glClearColor(0.7,0.33,0,0.5);
+	glClearColor(0.6, 0.4, 0.8, 0);
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vs, 1, &vertex_shader, nullptr);
