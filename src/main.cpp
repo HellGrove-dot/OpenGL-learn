@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include "render/ShaderProgram.h"
 #include <iostream>
+#include<math.h>
 
 int g_winSizeX = 840;
 int g_winSizeY = 620;
@@ -42,14 +43,14 @@ void glfwKeyBack(GLFWwindow* pWin, int key, int scancode, int action, int mode)
 	{
 		glfwSetWindowShouldClose(pWin, GL_TRUE);
 	}
-	static float x = 0.0f; 
+
+	static float time = 0.0f; 
 	if (key == GLFW_KEY_UP && action == GLFW_REPEAT) 
 	{
-		x += 0.1f;
-		if (x > 1.0f) x = 0.0f;
+		time += 0.05f;
+		float x = (sin(time) + 1.0f) / 2.0f; 
 		glClearColor(x, 0.4f, 0.8f, 1.0f);
 	}
-
 }
 
 void glfwScreenSizeBack(GLFWwindow* pWin, int width, int height)
