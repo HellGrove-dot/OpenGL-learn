@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(${PROJECT_NAME} 
     src/main.cpp
-    src/render/shaderProgram.cpp
-    src/render/shaderProgram.h
+    src/render/ShaderProgram.h
+    src/render/ShaderProgram.cpp
 )
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
